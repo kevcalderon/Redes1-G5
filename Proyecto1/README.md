@@ -39,6 +39,22 @@ vtp version 2
 ```
 ```
 
+### ESW3
+#### VLANS
+#### VTP
+```
+conf t
+vtp domain GRUPO5
+vtp password grupo5
+vtp mode server
+vtp version 2
+```
+#### PUERTOS
+```
+```
+
+## TOPOLOGIA 2
+
 
 <!-- ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
 ```
