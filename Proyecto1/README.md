@@ -21,7 +21,7 @@ vtp password grupo5
 vtp mode server
 vtp version 2
 ```
-#### PUERTOS
+#### INTERFACES
 ```
 ```
 
@@ -35,7 +35,7 @@ vtp password grupo5
 vtp mode server
 vtp version 2
 ```
-#### PUERTOS
+#### INTERFACES
 ```
 ```
 
@@ -49,7 +49,7 @@ vtp password grupo5
 vtp mode server
 vtp version 2
 ```
-#### PUERTOS
+#### INTERFACES
 ```
 ```
 
