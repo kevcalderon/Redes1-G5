@@ -94,7 +94,7 @@ Dirección ip: 192.168.15.40 255.255.255.0
 ### Vania Argueta Rodríguez - 201213487 :purple_circle:
 ![201213487_ping.JPG](src/201213487_ping.JPG "PING")
 
-## Requerimientos GNS3:  :
+## Requerimientos GNS3
 * Versión: **2.2.10**
 * Sistema operativo: **Windows 10 u 11**
 * Imagenes IOS: **Imagen de Ethernetswitch (Switch de Capa 3)** (porporcionada por el tutor)
