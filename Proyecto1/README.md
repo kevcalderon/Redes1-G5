@@ -1,11 +1,11 @@
-# Practica 1 :triangular_flag_on_post:
+# Proyecto 1 :triangular_flag_on_post:
 ### Integrantes
-Carne | Nombre | IP |
-|-----|-----|-----|
-|201902714 | Kevin Josué Calderón Peraza | 192.168.15.10 | 
-|201901016 | Kevin Alfredo López Rodríguez | 192.168.15.20 |
-|201902308 | Samuel Isaac Pérez Pérez | 192.168.15.30 |
-|201213487| Vania Argueta Rodríguez | 192.168.15.40 |
+Carne | Nombre |
+|-----|-----|
+|201902714 | Kevin Josué Calderón Peraza | 
+|201901016 | Kevin Alfredo López Rodríguez |
+|201902308 | Samuel Isaac Pérez Pérez |
+|201213487| Vania Argueta Rodríguez |
 
 
 
@@ -94,3 +94,7 @@ Dirección ip: 192.168.15.40 255.255.255.0
 ### Vania Argueta Rodríguez - 201213487 :purple_circle:
 ![201213487_ping.JPG](src/201213487_ping.JPG "PING")
 
+## Requerimientos GNS3:  :
+* Versión: **2.2.10**
+* Sistema operativo: **Windows 10 u 11**
+* Imagenes IOS: **Imagen de Ethernetswitch (Switch de Capa 3)** (porporcionada por el tutor)
