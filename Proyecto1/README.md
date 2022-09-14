@@ -10,8 +10,35 @@ Carne | Nombre |
 
 
 ## TOPOLOGIA 1
+
 ### ESW1
 #### VLANS
+#### VTP
+```
+conf t
+vtp domain GRUPO5
+vtp password grupo5
+vtp mode server
+vtp version 2
+```
+#### PUERTOS
+```
+```
+
+### ESW2
+#### VLANS
+#### VTP
+```
+conf t
+vtp domain GRUPO5
+vtp password grupo5
+vtp mode server
+vtp version 2
+```
+#### PUERTOS
+```
+```
+
 
 <!-- ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
 ```
