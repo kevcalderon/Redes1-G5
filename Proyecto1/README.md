@@ -9,9 +9,11 @@ Carne | Nombre |
 
 
 
-## Configuración de las VPCs :computer:
+## TOPOLOGIA 1
+### ESW1
+#### VLANS
 
-### Kevin Josué Calderón Peraza - 201902714 :red_circle:
+<!-- ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
 ```
 Dirección ip: 192.168.15.10 255.255.255.0
 ```
@@ -34,8 +36,6 @@ Dirección ip: 192.168.15.30 255.255.255.0
 Dirección ip: 192.168.15.40 255.255.255.0
 ```
 ![201213487_VPC.JPG](src/201213487_VPC.JPG "VPC")
-
-
 
 
 ## Configuración de las nubes  :electric_plug:
@@ -78,10 +78,6 @@ Dirección ip: 192.168.15.40 255.255.255.0
 
 
 
-
-
-
-
 ## Pings entre los hosts  :heavy_check_mark:
 
 ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
@@ -92,7 +88,7 @@ Dirección ip: 192.168.15.40 255.255.255.0
 ### Samuel Isaac Pérez Pérez  - 201902308  :orange_circle:
 ![201902308_ping.png](src/201902308_ping.png "PING")
 ### Vania Argueta Rodríguez - 201213487 :purple_circle:
-![201213487_ping.JPG](src/201213487_ping.JPG "PING")
+![201213487_ping.JPG](src/201213487_ping.JPG "PING") -->
 
 ## Requerimientos GNS3
 * Versión: **2.2.10**
