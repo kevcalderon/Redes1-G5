@@ -7,133 +7,283 @@ Carne | Nombre |
 |201902308 | Samuel Isaac Pérez Pérez |
 |201213487| Vania Argueta Rodríguez |
 
-
-
-## TOPOLOGIA 1
-
-### ESW1
-#### VLANS
-#### VTP
-```
-conf t
-vtp domain GRUPO5
-vtp password grupo5
-vtp mode server
-vtp version 2
-```
-#### INTERFACES
-```
-```
-
-### ESW2
-#### VLANS
-#### VTP
-```
-conf t
-vtp domain GRUPO5
-vtp password grupo5
-vtp mode server
-vtp version 2
-```
-#### INTERFACES
-```
-```
-
-### ESW3
-#### VLANS
-#### VTP
-```
-conf t
-vtp domain GRUPO5
-vtp password grupo5
-vtp mode server
-vtp version 2
-```
-#### INTERFACES
-```
-```
-
-## TOPOLOGIA 2
-
-
-<!-- ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
-```
-Dirección ip: 192.168.15.10 255.255.255.0
-```
-![201902714_VPC](src/201902714_VPC.PNG "VPC")
-
-### Kevin Alfredo López Rodríguez - 201901016 :yellow_circle:
-```
-Dirección ip: 192.168.15.20 255.255.255.0
-```
-![201901016_VPC](src/201901016_VPC.PNG "VPC")
-
-### Samuel Isaac Pérez Pérez  - 201902308 :orange_circle:
-```
-Dirección ip: 192.168.15.30 255.255.255.0
-```
-![201902308_VPC](src/201902308_VPC.png "VPC")
-
-### Vania Argueta Rodríguez - 201213487 :purple_circle:
-```
-Dirección ip: 192.168.15.40 255.255.255.0
-```
-![201213487_VPC.JPG](src/201213487_VPC.JPG "VPC")
-
-
-## Configuración de las nubes  :electric_plug:
-
- ### Kevin Josué Calderón Peraza - 201902714 :red_circle:
-
-### Conexión a Kevin López
-![201902714_kevinL.PNG](src/201902714_kevinL.PNG "CLOUD1")
-### Conexión a Samuel Pérez
-![201902714_samuel.PNG](src/201902714_samuel.PNG "CLOUD1")
-### Conexión a Vania Rodríguez
-![201902714_vania.PNG](src/201902714_vania.PNG "CLOUD1")
-
-
-### Kevin Alfredo López Rodríguez - 201901016 :yellow_circle:
-### Conexión a Kevin Calderón
-![201901016_KevinC.PNG](src/201901016_KevinC.PNG "CLOUD2")
-### Conexión a Samuel Pérez
-![201901016_Samuel.PNG](src/201901016_Samuel.PNG "CLOUD2")
-### Conexión a Vania Rodríguez
-![201901016_Vania.PNG](src/201901016_Vania.PNG "CLOUD2")
-
-
-### Samuel Isaac Pérez Pérez  - 201902308  :orange_circle:
-### Conexión a Kevin Calderón
-![201902308_KevinC.png](src/201902308_KevinC.png "CLOUD3")
-### Conexión a Kevin López
-![201902308_KevinL.png](src/201902308_KevinL.png "CLOUD3")
-### Conexión a Vania Rodríguez
-![201902308_Vania.png](src/201902308_Vania.png "CLOUD3")
-
-
-### Vania Argueta Rodríguez - 201213487 :purple_circle:
-### Conexión a Kevin Calderón
-![201213487_kevinC.JPG](src/201213487_kevinC.JPG "CLOUD4")
-### Conexión a Kevin López
-![201213487_kevinL.JPG](src/201213487_kevinL.JPG "CLOUD4")
-### Conexión a Samuel Pérez
-![201213487_samuelP.JPG](src/201213487_samuelP.JPG "CLOUD4")
-
-
-
-## Pings entre los hosts  :heavy_check_mark:
-
-### Kevin Josué Calderón Peraza - 201902714 :red_circle:
-![201902714_ping.PNG](src/201902714_ping.PNG "PING")
-
-### Kevin Alfredo López Rodríguez - 201901016 :yellow_circle:
-![201901016_ping.PNG](src/201901016_ping.PNG "PING")
-### Samuel Isaac Pérez Pérez  - 201902308  :orange_circle:
-![201902308_ping.png](src/201902308_ping.png "PING")
-### Vania Argueta Rodríguez - 201213487 :purple_circle:
-![201213487_ping.JPG](src/201213487_ping.JPG "PING") -->
-
 ## Requerimientos GNS3
 * Versión: **2.2.10**
 * Sistema operativo: **Windows 10 u 11**
 * Imagenes IOS: **Imagen de Ethernetswitch (Switch de Capa 3)** (porporcionada por el tutor)
+* VirtualBox: **Imagen ISO, Ubuntu 20.04**
+
+## TOPOLOGIA 1 :boom:
+
+<img src="imgs/topologia1.png"  width="75%" height="75%">
+
+### ESW1
+
+#### VTP
+```
+config term
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+```
+
+<img src="imgs/ESW1-vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+```
+int range f1/4 - 5
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+
+int f1/1
+switchport mode access
+switchport access vlan 10
+
+int f1/2
+switchport mode access
+switchport access vlan 30
+
+int f1/3
+switchport mode access
+switchport access vlan 10
+```
+#### VLANS
+<img src="imgs/ESW1.png"  width="50%" height="50%">
+
+### ESW2
+#### VTP
+```
+conf t
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+```
+
+<img src="imgs/ESW2-vtp.png"  width="50%" height="50%">
+
+
+#### INTERFACES
+```
+int range f1/1 - 3
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+```
+#### VLANS
+
+<img src="imgs/ESW2.png"  width="50%" height="50%">
+
+### ESW3
+
+#### VTP
+```
+conf t
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+```
+<img src="imgs/ESW3-vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+```
+int range f1/1 - 3
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+
+ESW3
+int f1/1
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40 
+
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40 
+
+int f1/5
+switchport mode access
+switchport access vlan 30
+
+int f1/4 
+switchport mode access
+switchport access vlan 40
+
+int f1/3
+switchport mode access
+switchport access vlan 20
+```
+
+#### VLANS
+
+<img src="imgs/ESW3.png"  width="50%" height="50%">
+
+### DIRECCIONAMIENTO DE HOST/VPCS
+
+```
+
+RRHH_1 > ip 192.168.51.10 255.255.255.0 192.168.51.1
+Conta_1 > ip 192.168.53.10 255.255.255.0 192.168.53.1
+RRHH_2  > ip 192.168.51.20 255.255.255.0 192.168.51.1
+Conta_2 > ip 192.168.53.20 255.255.255.0 192.168.53.1
+Venta_1 > ip 192.168.54.10 255.255.255.0 192.168.54.1
+Informatica_1 > ip 192.168.52.10 255.255.255.0 192.168.52.10
+
+```
+
+
+## TOPOLOGIA 2 :boom:
+
+<img src="imgs/topologia2.png"  width="75%" height="75%">
+
+### ESW4
+
+#### VTP
+```
+vtp mode server
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+
+```
+<img src="imgs/ESW4_vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+
+```
+int range f1/1 - 3
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+```
+
+#### CONFIGURACION DE ROOT BRIGDE PARA VLANS
+
+```
+spanning-tree vlan 1 root primary
+spanning-tree vlan 10 root primary
+spanning-tree vlan 20 root primary
+spanning-tree vlan 30 root primary
+spanning-tree vlan 40 root primary
+```
+
+#### VLANS
+
+```
+vlan 10
+name RRHH
+exit
+vlan 20
+name Informatica
+exit
+vlan 30
+name Contabilidad
+exit
+vlan 40 
+name Ventas
+
+do sh vlan-sw   
+```
+<img src="imgs/ESW4_vlans.png"  width="50%" height="50%">
+
+
+### ESW5
+
+#### VTP
+
+```
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+
+```
+<img src="imgs/ESW5_vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+
+```
+int range f1/1 - 2
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+```
+
+#### VLANS
+
+<img src="imgs/ESW5_vlans.png"  width="50%" height="50%">
+
+### ESW6
+
+#### VTP
+
+```
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+
+```
+
+<img src="imgs/ESW6_vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+
+```
+int range f1/1 - 4
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+```
+
+#### VLANS
+
+<img src="imgs/ESW6_vlans.png"  width="50%" height="50%">
+
+### ESW7
+
+#### VTP
+
+```
+vtp mode client
+vtp domain GRUPO5
+vtp password grupo5
+vtp version 2
+
+```
+<img src="imgs/ESW7_vtp.png"  width="50%" height="50%">
+
+#### INTERFACES
+
+```
+int range f1/1 - 2 
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+
+int f1/4
+switchport mode trunk
+switchport trunk allowed vlan 1,1002-1005,10,20,30,40
+
+int f1/3
+switchport mode access
+switchport access vlan 20
+
+```
+
+
+#### VLANS
+
+<img src="imgs/ESW7_vlans.png"  width="50%" height="50%">
+
+#### DIRECCIONAMIENTO DE HOST/VPS
+
+```
+Informatica_2 > 192.168.52.20 255.255.255.0 192.168.52.1
+```
+
+#### CONFIGURACIÓN DE CLOUDS
+
+<img src="imgs/cloud2config.png"  width="50%" height="50%">
+
+<img src="imgs/cloud3config.png"  width="50%" height="50%">
+
+
+## TOPOLOGIA 3 :boom:
+
