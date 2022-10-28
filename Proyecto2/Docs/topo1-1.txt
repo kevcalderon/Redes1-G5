@@ -1,0 +1,180 @@
+--R2     (R1)
+int f0/0
+ip address 10.5.0.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/1
+ip address 10.5.64.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+
+router rip
+version 2
+network 10.5.0.0
+network 10.5.64.0
+exit
+
+
+--R3    
+int f0/0
+ip address 10.5.32.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/1
+ip address 10.5.96.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+router rip
+version 2
+network 10.5.32.0
+network 10.5.96.0
+
+
+
+--R4      (R2)
+int f0/1
+ip address 10.5.64.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/0
+ip address 10.5.128.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+
+router rip
+version 2
+network 10.5.64.0
+network 10.5.128.0
+exit
+
+
+
+--R5  (R4)
+int f0/1
+ip address 10.5.96.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/0
+ip address 10.5.160.1 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+
+router rip
+version 2
+network 10.5.96.0
+network 10.5.160.0
+exit
+
+
+
+--R6
+int f0/1
+ip address 10.5.128.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f1/0
+ip address 10.5.160.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/0
+ip address 192.168.48.1 255.255.255.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+router rip
+version 2
+network 10.5.128.0
+network 10.5.160.0
+network 192.168.48.0
+exit
+
+
+--R1
+int f0/0
+ip address 10.5.0.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f1/0
+ip address 10.5.32.2 255.255.224.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+int f0/1
+ip address 192.168.45.1 255.255.255.0
+duplex full 
+shutdown
+no shutdown
+exit
+
+router rip
+version 2
+network 192.168.45.0
+network 10.5.0.0
+network 10.5.32.0
+exit
+
+
+
+--R2
+int f0/1
+glbp 1 ip 10.5.64.2
+glbp 1 preempt
+glbp 1 priority 150
+glbp 1 load-balancing round-robin
+
+
+--R3
+int f0/1
+glbp 1 ip 10.5.96.2
+glbp 1 load-balancing round-robin
+
+
+--R4
+int f0/1
+standby 1 ip 10.5.64.1
+standby 1 priority 150
+standby 1 preempt
+
+
+--R5
+int f0/1
+standby 1 ip 10.5.96.1
+
+
+
+
