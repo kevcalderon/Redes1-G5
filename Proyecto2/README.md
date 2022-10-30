@@ -1,4 +1,4 @@
-# Proyecto 1 :triangular_flag_on_post:
+# Proyecto 2 :triangular_flag_on_post:
 ### Integrantes
 Carne | Nombre |
 |-----|-----|
@@ -20,6 +20,9 @@ Carne | Nombre |
 
 ## TOPOLOGIA 2 :boom:
 
+<img src="Docs/T2.PNG"  width="75%" height="75%">
 
 ## TOPOLOGIA 3 :boom:
+
+<img src="Docs/T3.png"  width="75%" height="75%">
 
